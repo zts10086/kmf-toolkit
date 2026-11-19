@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 官方网站
+    url: https://kmft.top/
+    about: 下载最新版本、查看产品说明与账号注册
+  - name: 使用指南
+    url: https://github.com/zts10086/kmf-toolkit/blob/main/docs/guide.md
+    about: 界面分区、设备状态含义、分区操作与日志说明
+  - name: 安全问题
+    url: https://github.com/zts10086/kmf-toolkit/blob/main/SECURITY.md
+    about: 发现安全问题时请先看这里，不要直接开公开 issue

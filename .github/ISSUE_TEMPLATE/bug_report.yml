@@ -1,0 +1,74 @@
+name: 问题反馈
+description: 报告程序异常、识别失败或刷写中断
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。请尽量填全下列信息，缺一项都会让定位变慢。
+        提交前请先确认已阅读 [使用指南](https://github.com/zts10086/kmf-toolkit/blob/main/docs/guide.md) 与 README 的常见问题。
+  - type: input
+    id: version
+    attributes:
+      label: 程序版本
+      description: 主界面日志首行显示的版本号，例如 3.3.9
+      placeholder: 3.3.9
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows 版本
+      placeholder: Windows 11 24H2 / Windows 10 22H2
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: 手机型号与系统
+      placeholder: 例如 Xiaomi 14 / HyperOS 2.0
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: 连接模式
+      description: 主界面日志卡标题行显示的状态
+      options:
+        - 系统模式
+        - Fastboot
+        - EDL / 9008
+        - MTK BROM
+        - 设备：ADB离线
+        - 未检测到设备
+        - 其他（在描述中补充）
+    validations:
+      required: true
+  - type: dropdown
+    id: usb
+    attributes:
+      label: USB 链路徽标
+      options:
+        - USB 10G
+        - USB3.2
+        - USB2.0
+        - USB1.1
+        - 未显示徽标
+    validations:
+      required: false
+  - type: textarea
+    id: what
+    attributes:
+      label: 问题描述
+      description: 你做了什么、期望什么、实际发生了什么
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: 执行日志
+      description: 点「保存日志」后粘贴相关内容（可删去序列号等隐私信息）
+      render: text
+    validations:
+      required: true
