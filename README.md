@@ -49,21 +49,23 @@
 <p align="center">
   <img src="screenshots/main-window.png" alt="KM Flash Tool 主界面" width="880">
   <br>
-  <sub>主界面：左侧分区表 + 任务条，右侧执行日志；标题栏集中显示设备状态与 USB 链路速率</sub>
+  <sub>主界面：左侧分区表与任务条，右侧执行日志；日志卡标题行显示当前设备状态</sub>
 </p>
 
-设备状态不是一句"已连接"就完事。日志卡标题行会同时给出**连接模式**（系统模式 / Fastboot / EDL / BROM / ADB 离线 / 未检测到）和**当前 USB 链路速率**（USB 10G / USB3.2 / USB2.0 / USB1.1）。链路掉到 2.0 时刷写速度会明显下降，这个徽标就是提前告诉你"先换根线"。
+设备状态不是一句"已连接"就完事。日志卡标题行会给出**连接模式**：系统模式 / Fastboot / EDL 9008 / MTK BROM / ADB 离线 / 未检测到，六种取值各有明确的下一步动作。
+
+> 下面两张状态图取自 **3.4.x 开发线**构建：日志卡标题行右侧的 **USB 链路速率徽标**（USB 10G / USB3.2 / USB2.0 / USB1.1）是开发线新增能力，不在 v3.3.9 发行版中。判定思路见 [设计说明](docs/design-notes.md)。
 
 <p align="center">
   <img src="screenshots/device-state-matrix.png" alt="设备状态矩阵" width="600">
   <br>
-  <sub>状态组合实测：96 / 144 DPI，USB 10G / 3.2 / 2.0 / 1.1，系统模式 / Fastboot / 离线 / 未检测到</sub>
+  <sub>状态矩阵（3.4.x 开发线）：96 / 144 DPI，USB 10G / 3.2 / 2.0 / 1.1，系统模式 / Fastboot / 离线 / 未检测到</sub>
 </p>
 
 <p align="center">
   <img src="screenshots/status-detecting.png" alt="冷启动检测中" width="700">
   <br>
-  <sub>冷启动瞬间显示"正在检测设备"，避免把"还在识别"误读成"没连上"</sub>
+  <sub>冷启动瞬间显示"正在检测设备"（3.4.x 开发线），避免把"还在识别"误读成"没连上"</sub>
 </p>
 
 ---
@@ -76,7 +78,7 @@
 
 | 想做什么 | 在哪里 | 说明 |
 | --- | --- | --- |
-| 看设备有没有连上 | 主界面 → 执行日志标题栏 | 四种连接模式 + USB 链路速率；异常时先看这里 |
+| 看设备有没有连上 | 主界面 → 执行日志标题栏 | 四种连接模式与当前状态；异常时先看这里 |
 | 排查 Windows 驱动 | 辅助功能 → 设备管理器 | 打开系统设备管理器，确认手机与驱动被识别 |
 | 打开 ADB / Fastboot 命令环境 | 辅助功能 → adb命令 | 工具链随程序提供，断网也能用 |
 | 把手机屏幕投到电脑 | 辅助功能 → 一键投屏 | 需要可用的 ADB 连接并完成授权 |
@@ -143,8 +145,8 @@ Get-FileHash ".\KMF-Tool-3.3.9-x64.exe" -Algorithm SHA256
 
 | 版本 | 摘要 |
 | --- | --- |
-| **v3.3.9**（发行版） | ADB / Fastboot 工具链内嵌随程序释放，断网可用；启动进度条按文件推进；新增设备模式与 USB 链路速率徽标 |
-| 3.4.x（开发线） | 设备状态检测重构：冷启动预热与重试、ADB 离线单列、Windows 侧 USB 在线兜底 |
+| **v3.3.9**（发行版） | ADB / Fastboot 工具链内嵌随程序释放，断网可用；启动进度条按文件推进；资源包与模块安装判定更可靠 |
+| 3.4.x（开发线） | 设备状态检测重构 + USB 链路速率徽标：冷启动预热与重试、ADB 离线单列、Windows 侧 USB 在线兜底 |
 
 完整记录见 [CHANGELOG.md](CHANGELOG.md)，单版本说明见 [docs/release-notes/v3.3.9.md](docs/release-notes/v3.3.9.md)。
 
