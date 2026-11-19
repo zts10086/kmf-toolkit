@@ -97,12 +97,12 @@
 
 | 文件 | 说明 |
 | --- | --- |
-| `KM Flash Tool_3.3.9.exe` | Windows x64 单文件程序，免安装 |
+| `KMF-Tool-3.3.9-x64.exe` | Windows x64 单文件程序，免安装 |
 | `SHA256SUMS.txt` | 发布包校验值，下载后建议核对 |
 
 ```powershell
 # 核对下载文件的 SHA-256（PowerShell）
-Get-FileHash ".\KM Flash Tool_3.3.9.exe" -Algorithm SHA256
+Get-FileHash ".\KMF-Tool-3.3.9-x64.exe" -Algorithm SHA256
 ```
 
 **运行环境**：Windows 10 / 11（x64）。程序为静态链接的单文件，无需额外安装运行库。
