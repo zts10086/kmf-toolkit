@@ -141,10 +141,10 @@ Get-FileHash ".\KMF-Tool-3.3.9-x64.exe" -Algorithm SHA256
 
 ## 版本记录
 
-| 版本 | 类型 | 摘要 |
-| --- | --- | --- |
-| **v3.3.9** | 发行版 | ADB / Fastboot 工具链内嵌随程序释放，断网可用；启动进度条按文件推进；新增设备模式与 USB 链路速率徽标 |
-| 3.4.x | 开发线 | 设备状态检测重构（冷启动预热、重试、ADB 离线单列、Windows 侧 USB 在线兜底） |
+| 版本 | 摘要 |
+| --- | --- |
+| **v3.3.9**（发行版） | ADB / Fastboot 工具链内嵌随程序释放，断网可用；启动进度条按文件推进；新增设备模式与 USB 链路速率徽标 |
+| 3.4.x（开发线） | 设备状态检测重构：冷启动预热与重试、ADB 离线单列、Windows 侧 USB 在线兜底 |
 
 完整记录见 [CHANGELOG.md](CHANGELOG.md)，单版本说明见 [docs/release-notes/v3.3.9.md](docs/release-notes/v3.3.9.md)。
 
